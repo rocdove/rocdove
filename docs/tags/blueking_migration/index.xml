@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blueking_migration on RocDOve&#39;s Blog</title>
+    <link>https://rocdove.github.io/tags/blueking_migration/</link>
+    <description>Recent content in blueking_migration on RocDOve&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>rocdove@sina.com (RocDOve)</managingEditor>
+    <webMaster>rocdove@sina.com (RocDOve)</webMaster>
+    <lastBuildDate>Sat, 26 Oct 2019 13:42:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://rocdove.github.io/tags/blueking_migration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Migration APPO</title>
+      <link>https://rocdove.github.io/blueking/migration/appo/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/appo/</guid>
+      <description>paas_agent (appt, appo) 迁移 appo 依赖于 appo 需要重新部署的服务 saas-o appo 迁移需要更改nginx配置： nginx 停止相关服务 ./bkcec stop saas-o ./bkcec stop appo 删除安装标记 ssh $APPO_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/appo/d&#39; $INSTALL_PATH.installed_module; grep appo $INSTALL_PATH.installed_module&amp;quot; sed -i &#39;/appo/d&#39; /data/install/.bk_install.step; grep</description>
+    </item>
+    
+    <item>
+      <title>Migration APPT</title>
+      <link>https://rocdove.github.io/blueking/migration/appt/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/appt/</guid>
+      <description>paas_agent (appt) 迁移 appt 依赖于 appt 需要重新部署的服务 saas-t appt 迁移需要更改nginx配置： nginx 停止相关服务 ./bkcec stop saas-t ./bkcec stop appt 删除安装标记 ssh $APPT_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/appt/d&#39; $INSTALL_PATH/.installed_module; grep appt $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/appt/d&#39; /data/install/.bk_install.step; grep appt</description>
+    </item>
+    
+    <item>
+      <title>Migration CMDB</title>
+      <link>https://rocdove.github.io/blueking/migration/cmdb/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/cmdb/</guid>
+      <description>CMDB迁移 依赖cmdb服务需要从新渲染配置： job bkdata cmdb迁移需要更改nginx配置： nginx 停止相关服务 ./bkcec stop bkdata ./bkcec stop job ./bkcec stop cmdb ./bkcec stop nginx 删除安装标记 ssh $CMDB_IP</description>
+    </item>
+    
+    <item>
+      <title>Migration ElasticSearch</title>
+      <link>https://rocdove.github.io/blueking/migration/elasticsearch/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/elasticsearch/</guid>
+      <description>elasticsearch 迁移</description>
+    </item>
+    
+    <item>
+      <title>Migration GSE and Redis</title>
+      <link>https://rocdove.github.io/blueking/migration/gse_redis/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/gse_redis/</guid>
+      <description>gse and redis 迁移 gse 与 redis 需要部署在同一台机器上 gse 若需要跨云支持， gse 所在机器必须有外网 IP 依赖 gse and redis 服务需要从新渲染配置： job cmdb 依赖 gse and redis 但不需要渲染配置</description>
+    </item>
+    
+    <item>
+      <title>Migration InfluxDB</title>
+      <link>https://rocdove.github.io/blueking/migration/influxdb/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/influxdb/</guid>
+      <description>influxdb 迁移 数据库服务的迁移需要同步原有数据 依赖 influxdb 的服务需要从新渲染配置： bkdata gse 停止相关服务 ./bkcec stop bkdata ./bkcec stop influxdb 备份数据库 rsync -av $INFLUXDB_IP:$INSTALL_PATH/public/influxdb /tmp/influxdb_migration_bak/ 删除安装标记 ssh $INFLUXDB_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/influxdb/d&#39;</description>
+    </item>
+    
+    <item>
+      <title>Migration JOB</title>
+      <link>https://rocdove.github.io/blueking/migration/job/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/job/</guid>
+      <description>Job迁移 依赖 paas 但不需要渲染配置 fta bkdata job 迁移需要更改nginx配置： nginx 停止相关服务 ./bkcec stop job ./bkcec stop nginx 删除安装标记 ssh $JOB_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/job/d&#39; $INSTALL_PATH/.installed_module; grep job $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/job/d&#39; /data/install/.bk_install.step; grep job /data/install/.bk_install.step&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>Migration Kafka</title>
+      <link>https://rocdove.github.io/blueking/migration/kafka/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/kafka/</guid>
+      <description>kafka 迁移 kafka 为集群部署，一台一台迁移不影响使用 stop ./bkcec stop kafka 删除安装标记 ssh $KAFKA_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/kafka/d&#39; $INSTALL_PATH/.installed_module; grep kafka $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/kafka/d&#39; /data/install/.bk_install.step; grep kafka /data/install/.bk_install.step&amp;quot; # 删除consul对应服务配置 ssh ${KAFKA_IP} &amp;quot;source /data/install/utils.fc; rm -f</description>
+    </item>
+    
+    <item>
+      <title>Migration License</title>
+      <link>https://rocdove.github.io/blueking/migration/license/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/license/</guid>
+      <description>license 迁移 依赖 license 服务不需要从新渲染配置： paas cmdb job paas-agent 需要先获取迁移目标地址的 mac 获取证书 停止相关服务 # ./bkcec stop appo # ./bkcec stop appt # ./bkcec stop job # ./bkcec stop cmdb # ./bkcec stop paas ./bkcec stop license 备份</description>
+    </item>
+    
+    <item>
+      <title>Migration MongoDB</title>
+      <link>https://rocdove.github.io/blueking/migration/mongodb/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/mongodb/</guid>
+      <description>mongodb 迁移 数据库服务的迁移需要同步原有数据 依赖 mongodb 的服务需要从新渲染配置： cmdb 停止相关服务 ./bkcec stop cmdb 备份数据库，并停止 mongodb auth=($(grep cmdb /data/install/.app.token)) # 压缩备份（数据量大） # /data/src/service/mongodb/bin/mongodump</description>
+    </item>
+    
+    <item>
+      <title>Migration MySql</title>
+      <link>https://rocdove.github.io/blueking/migration/mysql/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/mysql/</guid>
+      <description>MySQL服务迁移 数据库服务的迁移需要同步原有数据 依赖mysql的服务需要从新渲染配置： paas job bkdata fta saas-o：重新部署已部署saas服务 停止</description>
+    </item>
+    
+    <item>
+      <title>Migration Nginx</title>
+      <link>https://rocdove.github.io/blueking/migration/nginx/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/nginx/</guid>
+      <description>nginx 迁移 依赖 nginx 服务不需要从新渲染配置： paas cmdb job paas-agent gse 需要重新部署安装来生成agent和proxy部署安装包到nginx的miniweb/downl</description>
+    </item>
+    
+    <item>
+      <title>Migration Rabbitmq</title>
+      <link>https://rocdove.github.io/blueking/migration/rabbitmq/</link>
+      <pubDate>Sat, 26 Oct 2019 13:42:43 +0800</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/rabbitmq/</guid>
+      <description>rabbitmq 迁移 依赖 rabbitmq 服务需要从新渲染配置： job 依赖 rabbitmq 但不需要渲染配置 paas-agent (appt, appo) 停止相关服务 ./bkcec stop job ./bkcec stop appo ./bkcec stop appt 删除安装标记 ssh $RABBITMQ_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/rabbitmq/d&#39; $INSTALL_PATH/.installed_module; grep rabbitmq $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/rabbitmq/d&#39; /data/install/.bk_install.step; grep rabbitmq</description>
+    </item>
+    
+    <item>
+      <title>Migration Beanstalk</title>
+      <link>https://rocdove.github.io/blueking/migration/beanstalk/</link>
+      <pubDate>Thu, 24 Oct 2019 09:09:19 +0000</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/beanstalk/</guid>
+      <description>beanstalk 迁移 beanstalk 为内存小消息队列服务，迁移时不需要同步数据 stop ./bkcec stop beanstalk 删除安装标记 ssh ${BEANSTALK_IP} &amp;quot;source /data/install/utils.fc; sed -i &#39;/beanstalk/d&#39; $INSTALL_PATH/.installed_module; grep beanstalk $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/beanstalk/d&#39; /data/install/.bk_install.step; grep beanstalk /data/install/.bk_install.step # 删除consul对应服务配置 ssh ${BEANSTALK_IP}</description>
+    </item>
+    
+    <item>
+      <title>Migration BKDATA</title>
+      <link>https://rocdove.github.io/blueking/migration/bkdata/</link>
+      <pubDate>Thu, 24 Oct 2019 09:09:19 +0000</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/bkdata/</guid>
+      <description>迁移bkdata 停止相关服务 ./bkcec stop bkdata 删除安装标记 ssh $BKDATA_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/bkdata/d&#39; $INSTALL_PATH/.installed_module; grep bkdata $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/bkdata/d&#39; /data/install/.bk_install.step; grep bkdata /data/install/.bk_install.step # 删除consul对应服务配置 ssh $BKDATA_IP &amp;quot;source /data/install/utils.fc; rm -f $INSTALL_PATH/etc/consul.d/{dataapi,databus,monitor}.json&amp;quot; 配置insta</description>
+    </item>
+    
+    <item>
+      <title>Migration FAQ</title>
+      <link>https://rocdove.github.io/blueking/migration/faq/</link>
+      <pubDate>Thu, 24 Oct 2019 09:09:19 +0000</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/faq/</guid>
+      <description>迁移后排障 服务状态异常 status all 和 status module 状态不一致 ./bkcec status all 中显示某个服务为exit状态， ./bkcec status module 中显示服务正常，而服务所在IP不同 举例： # ./bkcec status all [172.21.18.10] consul: RUNNING [172.21.18.10]</description>
+    </item>
+    
+    <item>
+      <title>Migration FTA</title>
+      <link>https://rocdove.github.io/blueking/migration/fta/</link>
+      <pubDate>Thu, 24 Oct 2019 09:09:19 +0000</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/fta/</guid>
+      <description>fta 迁移 停止相关服务 ./bkcec stop fta 删除安装标记 ssh $FTA_IP &amp;quot;source /data/install/utils.fc; sed -i &#39;/fta/d&#39; $INSTALL_PATH/.installed_module; grep fta $INSTALL_PATH/.installed_module&amp;quot; sed -i &#39;/fta/d&#39; /data/install/.bk_install.step; grep fta /data/install/.bk_install.step&amp;quot; # 删除consul对应服务配置 ssh ${FTA_IP} &amp;quot;source /data/install/utils.fc; rm -f $INSTALL_PATH/etc/consul.d/fta.json&amp;quot; 配置install.co</description>
+    </item>
+    
+    <item>
+      <title>Migration PaaS</title>
+      <link>https://rocdove.github.io/blueking/migration/paas/</link>
+      <pubDate>Thu, 24 Oct 2019 09:09:19 +0000</pubDate>
+      <author>rocdove@sina.com (RocDOve)</author>
+      <guid>https://rocdove.github.io/blueking/migration/paas/</guid>
+      <description>PaaS 迁移 依赖 paas 服务需要从新渲染配置： job 依赖 paas 但不需要渲染配置 paas-agent (appt, appo) bkdata paas 迁移需要更改nginx配置： nginx 停止相关服务 ./bkcec stop job ./bkcec stop paas ./bkcec stop nginx 删除安装标记</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Migration InfluxDB  &middot; RocDOve&#39;s Blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="blueking, blueking_migration, ">
+
+
+<meta property="og:title" content="Migration InfluxDB  &middot; RocDOve&#39;s Blog ">
+<meta property="og:site_name" content="RocDOve&#39;s Blog"/>
+<meta property="og:url" content="https://rocdove.github.io/blueking/migration/influxdb/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2019-10-26T13:42:43&#43;08:00" />
+<meta property="og:article:modified_time" content="2019-10-26T13:42:43&#43;08:00" />
+
+  
+    
+<meta property="og:article:tag" content="blueking">
+    
+<meta property="og:article:tag" content="blueking_migration">
+    
+  
+
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Migration InfluxDB",
+    "author": {
+      "@type": "Person",
+      "name": "RocDOve"
+    },
+    "datePublished": "2019-10-26",
+    "description": "",
+    "wordCount":  552 
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://rocdove.github.io/blueking/migration/influxdb/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://rocdove.github.io/imgs/touch-icon-144-precomposed.png">
+<link href="https://rocdove.github.io/imgs/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.59.0" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight/default.css">
+
+  <script  src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" ></script>
+<script  src="//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js" ></script>
+
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'Your Google Analytics tracking code', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-item">
+        <div class="ih-item circle effect right_to_left">
+            <a class="blog-button" title="RocDove">
+                <img class="logo-img" src="/imgs/drops_of_water.jpg?d=wavatar&s=600" alt="logo img" />
+                <small class="info info-back">
+                    <br />自由飞翔<br />
+                </small>
+            </a>
+        </div>
+    </div>
+</div>
+<a class="baselink" href="https://rocdove.github.io/">
+  RocDove
+</a>
+</div>
+
+  
+<div class="container topline">
+  
+  RocDove&rsquo;s Blog
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="https://rocdove.github.io/">Home</a>
+
+
+  
+<a href="https://rocdove.github.io/about">About</a>
+
+<a href="https://rocdove.github.io/blueking" title="Show list of blueking">Blueking</a>
+
+<a href="https://rocdove.github.io/post" title="Show list of posts">Posts</a>
+
+<a href="https://rocdove.github.io/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" rel="me" aria-label="Email" href="mailto:rocdove@sina.com">
+  <span class="fa fa-envelope-square"></span></a>
+
+
+<a id="contact-link-github" class="contact_link" rel="me" aria-label="Github" href="https://github.com/rocdove/rocdove.github.io">
+  <span class="fa fa-github-square"></span></a>
+
+
+ 
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Migration InfluxDB
+</h1>
+
+  <small class="post-date">
+    <i class="fas fa-calendar-day"></i>
+    October 26, 2019
+    <i class="fas fa-file-word"></i>
+    552 Words
+  </small>
+</header>
+
+  <div class="container content">
+  
+
+<h1 id="influxdb-迁移">influxdb 迁移</h1>
+
+<ul>
+<li>数据库服务的迁移需要同步原有数据</li>
+<li>依赖 influxdb 的服务需要从新渲染配置：
+
+<ul>
+<li>bkdata</li>
+<li>gse</li>
+</ul></li>
+</ul>
+
+<h2 id="停止相关服务">停止相关服务</h2>
+
+<pre><code class="language-bash">./bkcec stop bkdata
+./bkcec stop influxdb
+</code></pre>
+
+<h2 id="备份数据库">备份数据库</h2>
+
+<pre><code class="language-bash">rsync -av $INFLUXDB_IP:$INSTALL_PATH/public/influxdb /tmp/influxdb_migration_bak/
+</code></pre>
+
+<h2 id="删除安装标记">删除安装标记</h2>
+
+<pre><code class="language-bash">ssh $INFLUXDB_IP &quot;source /data/install/utils.fc; sed -i '/influxdb/d' $INSTALL_PATH/.installed_module; grep influxdb $INSTALL_PATH/.installed_module&quot;
+sed -i '/influxdb/d' /data/install/.bk_install.step; grep influxdb /data/install/.bk_install.step&quot;
+
+# 删除consul对应服务配置
+ssh ${INFLUXDB_IP} &quot;source /data/install/utils.fc; rm -f $INSTALL_PATH/etc/consul.d/influxdb.json&quot;
+</code></pre>
+
+<h2 id="配置install-config">配置install.config</h2>
+
+<ul>
+<li>删除原ip所在行的 influxdb</li>
+<li>新增一行 $ip influxdb ip为待迁移的机器IP</li>
+<li>更新env: source utils.fc</li>
+</ul>
+
+<h2 id="新机器配置好中控机的-ssh-免密登陆">新机器配置好中控机的 ssh 免密登陆</h2>
+
+<pre><code class="language-bash">./configure_ssh_without_pass
+</code></pre>
+
+<h2 id="同步文件">同步文件</h2>
+
+<pre><code class="language-bash">./bkcec sync common
+./bkcec sync consul
+./bkcec sync influxdb
+</code></pre>
+
+<h2 id="安装consul-并重启服务">安装consul，并重启服务</h2>
+
+<pre><code class="language-bash">./bkcec install consul
+
+./bkcec stop consul
+./bkcec start consul
+</code></pre>
+
+<h2 id="安装-influxdb">安装 influxdb</h2>
+
+<pre><code class="language-bash">./bkcec install influxdb
+</code></pre>
+
+<h2 id="存入备份数据">存入备份数据</h2>
+
+<pre><code class="language-bash">source utils.fc
+rsync -av /tmp/influxdb_migration_bak/influxdb $INFLUXDB_IP:$INSTALL_PATH/public/
+ssh $INFLUXDB_IP &quot;source /data/install/utils.fc; chown -R influxdb:influxdb $INSTALL_PATH/public/influxdb; ls -l $INSTALL_PATH/public/influxdb&quot;
+</code></pre>
+
+<h2 id="给新机器授予mysql权限-非新机器时无需执行">给新机器授予mysql权限（非新机器时无需执行）</h2>
+
+<pre><code class="language-bash">./bkcec initdata mysql
+</code></pre>
+
+<h2 id="重新渲染相关模块配置-并重启服务-注意启动顺序">重新渲染相关模块配置，并重启服务（注意启动顺序）</h2>
+
+<pre><code class="language-bash">./bkcec render influxdb
+./bkcec render bkdata
+
+./bkcec start influxdb
+./bkcec start bkdata
+</code></pre>
+
+<h2 id="在cmdb界面上-进入业务拓扑-把公共组件下的mysql模块下的老机器转移到空闲机">在CMDB界面上，进入业务拓扑，把公共组件下的mysql模块下的老机器转移到空闲机</h2>
+
+<p>转移到空闲机是为了在安装gse_agent时，能从新按照新的模块配置重新注册到CMDB。
+为了能让服务器与模块的管理关系与实际保持一致，在从新安装gse_agent之前需要把
+配置变动的机器置于蓝鲸业务的空闲机中。</p>
+
+<h2 id="重新安装gse-agent">重新安装gse-agent</h2>
+
+<pre><code class="language-bash"># 给新机器添加gse_agent，给模块配置变动的机器从新部署gse_agent.并注册到CMDB。
+./bkcec install gse_agent
+</code></pre>
+
+<h2 id="检查服务是否正常">检查服务是否正常</h2>
+
+<ul>
+<li>bkmonitor上是否正常采集到数据</li>
+<li>节点管理上添加新节点agent</li>
+</ul>
+
+</div>
+
+
+  
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="https://rocdove.github.io/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//your_disqus_shortname.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    
+  </body>
+</html>
+

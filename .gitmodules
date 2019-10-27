@@ -1,0 +1,9 @@
+[submodule "themes/terminal"]
+	path = themes/terminal
+	url = https://github.com/panr/hugo-theme-terminal.git
+[submodule "themes/hyde-y"]
+	path = themes/hyde-y
+	url = https://github.com/enten/hyde-y
+[submodule "themes/hyde-roc"]
+	path = themes/hyde-roc
+	url = https://github.com/rocdove/hyde-roc
